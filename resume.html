@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+  <noscript>
+    <style>
+      #theme-toggle { display: none; }
+      .noscript-alert {
+        background: #ffdddd;
+        color: #990000;
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-align: center;
+        padding: 1rem;
+        margin: 1rem 0;
+        border: 2px solid #990000;
+        border-radius: 5px;
+      }
+    </style>
+    <p class="noscript-alert">
+      JavaScript is disabled. The dark mode feature and other interactive elements may not be available.
+    </p>
+  </noscript>
+  
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+         <li><a href="index.html">Home</a></li>
+         <li><a href="about.html">About Me</a></li>
+         <li><a href="projects.html">Projects</a></li>
+         <li><a href="resume.html" class="active">Resume</a></li>
+         <li><a href="contact.html">Contact</a></li>
+         <li><a href="experiments.html">Experiments</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle">🌙</button>
+  </header>
+  <main class="resume-container">
+    <h1>My Resume</h1>
+    <div class="resume-download">
+      <a href="resources/Ricks Resume.pdf" download class="button">📄 Download PDF</a>
+    </div>
+    <section class="resume-section">
+      <h2>🎓 Education</h2>
+      <p><strong>Bachelor of Science in Computer Science</strong> - University of California, San Diego</p>
+    </section>
+    <section class="resume-section">
+      <h2>💼 Experience</h2>
+      <div class="job">
+         <h3>Research Assistant</h3>
+         <p><strong>UCSD Computer Graphics Lab</strong> | Jan 2024 - Present</p>
+         <ul>
+           <li>Implemented Gaussian Splatting in NVIDIA's Slang, optimizing computational graphics performance.</li>
+           <li>Conducted experiments in differentiable rendering to evaluate Slang’s auto-diff efficiency.</li>
+         </ul>
+      </div>
+      <div class="job">
+         <h3>Software Development Intern</h3>
+         <p><strong>Viasat</strong> | Summer 2023</p>
+         <ul>
+           <li>Developed scalable backend services in Python and Golang for satellite communication systems.</li>
+           <li>Implemented CI/CD pipelines, reducing deployment time by 40%.</li>
+         </ul>
+      </div>
+    </section>
+    <section class="resume-section">
+      <h2>🛠 Skills</h2>
+      <ul class="skills-list">
+         <li><strong>Languages:</strong> Python, C++, JavaScript, Slang</li>
+         <li><strong>Technologies:</strong> TensorFlow, PyTorch, React, Node.js</li>
+         <li><strong>Concepts:</strong> Machine Learning, Computer Graphics, Web Development</li>
+      </ul>
+    </section>
+    <section class="resume-section">
+      <h2>🌎 Connect with Me</h2>
+      <ul class="social-links">
+         <li><a href="https://github.com/rickrodness" target="_blank">GitHub</a></li>
+         <li><a href="https://linkedin.com/in/rickrodness" target="_blank">LinkedIn</a></li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <address>📩 Contact: <a href="mailto:rrodness@ucsd.edu">rrodness@ucsd.edu</a></address>
+  </footer>
+</body>
+</html>

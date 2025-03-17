@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD Actions - Project Manager</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="crud.js"></script>
+  <noscript>
+    <style>
+      .noscript-alert {
+        background: #ffdddd;
+        color: #990000;
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-align: center;
+        padding: 1rem;
+        margin: 1rem 0;
+        border: 2px solid #990000;
+        border-radius: 5px;
+      }
+    </style>
+    <p class="noscript-alert">
+      JavaScript is disabled. CRUD functionality may not work.
+    </p>
+  </noscript>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+         <li><a href="index.html">Home</a></li>
+         <li><a href="projects.html">Projects</a></li>
+         <li><a href="crud.html" class="active">CRUD</a></li>
+         <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle">🌙</button>
+  </header>
+
+  <main>
+    <h1>CRUD Actions for Projects</h1>
+    <!-- 
+      Extra Credit B: Create a second page, crud.html, which has a form that allows you 
+      to perform CRUD actions on data in localStorage.
+    -->
+
+    <!-- Form to Create/Update a Project -->
+    <form id="crud-form">
+      <!-- Hidden field to store the index of the project when editing -->
+      <input type="hidden" id="project-index" value="">
+
+      <div>
+        <label for="project-title">Title:</label>
+        <input type="text" id="project-title" required>
+      </div>
+      
+      <div>
+        <label for="project-image">Image URL:</label>
+        <input type="url" id="project-image" required>
+      </div>
+      
+      <div>
+        <label for="project-alt">Image Alt Text:</label>
+        <input type="text" id="project-alt" required>
+      </div>
+      
+      <div>
+        <label for="project-description">Description:</label>
+        <textarea id="project-description" required></textarea>
+      </div>
+      
+      <div>
+        <label for="project-link">Project Link:</label>
+        <input type="url" id="project-link" required>
+      </div>
+      
+      <button type="submit" id="submit-btn">Add Project</button>
+      <button type="button" id="clear-btn">Clear Form</button>
+    </form>
+
+    <!-- Section to display the list of projects -->
+    <section id="crud-projects-list">
+      <h2>Existing Projects</h2>
+      <ul id="projects-list"></ul>
+    </section>
+  </main>
+  <footer>
+    <address>Contact me at <a href="mailto:rrodness@ucsd.edu">rrodness@ucsd.edu</a></address>
+  </footer>
+</body>
+</html>

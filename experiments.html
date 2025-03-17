@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experiments - Rick Rodness</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+  <noscript>
+    <style>
+      #theme-toggle { display: none; }
+      .noscript-alert {
+        background: #ffdddd;
+        color: #990000;
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-align: center;
+        padding: 1rem;
+        margin: 1rem 0;
+        border: 2px solid #990000;
+        border-radius: 5px;
+      }
+    </style>
+    <p class="noscript-alert">
+      JavaScript is disabled. The dark mode feature and other interactive elements may not be available.
+    </p>
+  </noscript>
+  
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+         <li><a href="index.html">Home</a></li>
+         <li><a href="about.html">About Me</a></li>
+         <li><a href="projects.html">Projects</a></li>
+         <li><a href="resume.html">Resume</a></li>
+         <li><a href="contact.html">Contact</a></li>
+         <li><a href="experiments.html" class="active">Experiments</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle">🌙</button>
+  </header>
+  <section class="experiment-hero">
+    <h1>⚡ Fun HTML & CSS Experiments ⚡</h1>
+    <p>Testing out unique HTML elements, MathML, SVGs, and more!</p>
+  </section>
+  <main class="experiment-container">
+    <!-- Custom Semantic Element -->
+    <highlight-box>
+      <h2>Custom Semantic Element</h2>
+      <p>This box is a <strong>custom element</strong> styled with CSS.</p>
+    </highlight-box>
+    <!-- MathML Example -->
+
+    <section id="theme-customizer">
+      <h2>Customize Theme</h2>
+    
+      <!-- Choose a base theme or name a new one -->
+      <label for="customThemeName">Theme Name:</label>
+      <input type="text" id="customThemeName" placeholder="My Custom Theme" />
+    
+      <!-- Color pickers -->
+      <label for="customTextColor">Text Color:</label>
+      <input type="color" id="customTextColor" value="#333333" />
+    
+      <label for="customBgColor">Background Color:</label>
+      <input type="color" id="customBgColor" value="#f4f4f4" />
+    
+      <!-- Font selector -->
+      <label for="customFontSelect">Font Set:</label>
+      <select id="customFontSelect">
+        <option value="Arial, sans-serif">Arial</option>
+        <option value="'Times New Roman', serif">Times New Roman</option>
+        <option value="'Courier New', monospace">Courier New</option>
+      </select>
+    
+      <!-- Buttons to apply or save/load the custom theme -->
+      <button id="applyCustomTheme">Apply Custom Theme</button>
+      <button id="saveCustomTheme">Save Custom Theme</button>
+      <button id="loadCustomTheme">Load Custom Theme</button>
+    </section>
+    <section class="experiment-section">
+      <h2>🧮 MathML Formula</h2>
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mrow>
+          <mi>E</mi>
+          <mo>=</mo>
+          <mrow>
+            <mi>m</mi>
+            <msup>
+              <mi>c</mi>
+              <mn>2</mn>
+            </msup>
+          </mrow>
+        </mrow>
+      </math>
+    </section>
+    <!-- Miscellaneous HTML Elements -->
+    <section class="experiment-section">
+      <h2>🔍 Interactive HTML Elements</h2>
+      <details>
+        <summary>Click to Expand Details</summary>
+        <p>This tag allows collapsible content.</p>
+      </details>
+      <blockquote cite="https://www.example.com">
+        "The best way to predict the future is to invent it."
+      </blockquote>
+      <figure>
+        <img src="images/example.jpg" alt="Example Image" width="250">
+        <figcaption>Styled Image Caption</figcaption>
+      </figure>
+      <pre><code>&lt;h1&gt;This is preformatted code&lt;/h1&gt;</code></pre>
+      <dl>
+        <dt>HTML</dt>
+        <dd>HyperText Markup Language</dd>
+        <dt>CSS</dt>
+        <dd>Cascading Style Sheets</dd>
+      </dl>
+    </section>
+    <!-- SVG & Canvas Section -->
+    <section class="experiment-section">
+      <h2>🎨 SVG & Canvas Graphics</h2>
+      <canvas id="myCanvas" width="200" height="100"></canvas>
+      <svg width="100" height="100">
+        <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
+      </svg>
+    </section>
+  </main>
+  <footer>
+    <p>📩 Contact: <a href="mailto:rrodness@ucsd.edu">rrodness@ucsd.edu</a></p>
+  </footer>
+  <script>
+    class HelloWorld extends HTMLElement {
+      constructor() {
+        super();
+        console.log("Hello world!");
+      }
+    }
+    customElements.define('hello-world', HelloWorld);
+  </script>
+  <noscript>Your browser does not support JavaScript!</noscript>
+</body>
+</html>
