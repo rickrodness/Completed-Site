@@ -456,3 +456,97 @@ img {
 :root[data-theme='dark'] .about-section {
     background-color: #2b2b2b !important;
 }
+/* ==============================
+   7) CRUD Page Styling
+   ============================== */
+
+/* Container for main content in crud.html */
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+  }
+  
+  /* CRUD form layout (title, image URL, etc.) */
+  #crud-form {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  #crud-form label {
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+  }
+  
+  #crud-form input,
+  #crud-form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  #crud-form button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: var(--primary-color, #1e90ff);
+    color: #fff;
+    font-weight: bold;
+    transition: background 0.3s;
+    grid-column: span 2; /* Make buttons stretch across both columns */
+    margin-top: 0.5rem;
+  }
+  
+  #crud-form button:hover {
+    background-color: #006ad1;
+  }
+  
+  /* Existing Projects section */
+  #crud-projects-list {
+    margin-top: 2rem;
+  }
+  
+  #projects-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #projects-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Buttons for Edit/Delete inside the project list */
+  #projects-list button {
+    margin-left: 0.5rem;
+    padding: 0.3rem 0.6rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: opacity 0.2s;
+  }
+  
+  #projects-list button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Example colors for Edit (first button) and Delete (second button) */
+  #projects-list button:nth-child(1) {
+    background-color: #ffd700; /* "Gold" for Edit */
+  }
+  
+  #projects-list button:nth-child(2) {
+    background-color: #ff6347; /* "Tomato" for Delete */
+    color: #fff;
+  }
