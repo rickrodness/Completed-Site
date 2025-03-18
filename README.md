@@ -3,7 +3,7 @@
 This is a personal portfolio website showcasing my computer science journey at UCSD, including projects, research, and relevant academic experiences. The site is built with semantic HTML and basic CSS for structural clarity.
 
 ## Homework 5 HW5 Enhancements:
-In this update, I introduced dynamic project loading via localStorage and a remote JSON endpoint, allowing users to click “Load Local” or “Load Remote” to see different sets of project cards. This change boosts site interactivity and enhances the user experience. I also improved the styling a lot and enhanced the layout of my portfolio with CSS Grid and Flexbox, making it more responsive on different devices. Furthermore, I implemented a CRUD page (crud.html) to demonstrate how to create, read, update, and delete project data in localStorage for extra credit B. 
+In this update, I introduced dynamic project loading via localStorage and a remote JSON endpoint, allowing users to click “Load Local” or “Load Remote” to see different sets of project cards. This change boosts site interactivity and enhances the user experience. I also improved the styling a lot and enhanced the layout of my portfolio with CSS Grid and Flexbox, making it more responsive on different devices. Furthermore, I implemented a CRUD page [CRUD Page](crud.html) to demonstrate how to create, read, update, and delete project data in localStorage for extra credit B. 
 
 These updates reflect a stronger understanding of vanilla JavaScript, custom elements, and modern web APIs, while keeping a clear and organized commit history for future developers.
 
