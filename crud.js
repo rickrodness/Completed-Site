@@ -1,7 +1,7 @@
 /*
  * Extra Credit B: CRUD Actions (crud.js)
  * This script enables Create, Read, Update, and Delete operations 
- * on project data stored in localStorage.
+ * on project data stored in localStorage
  */
 
 // Utility function: Retrieve project data from localStorage or return an empty array.
