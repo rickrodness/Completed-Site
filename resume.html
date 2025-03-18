@@ -4,44 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resume</title>
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="styles.css">
   <script defer src="script.js"></script>
-  <noscript>
-    <style>
-      #theme-toggle { display: none; }
-      .noscript-alert {
-        background: #ffdddd;
-        color: #990000;
-        font-size: 1.2rem;
-        font-weight: bold;
-        text-align: center;
-        padding: 1rem;
-        margin: 1rem 0;
-        border: 2px solid #990000;
-        border-radius: 5px;
-      }
-    </style>
-    <p class="noscript-alert">
-      JavaScript is disabled. The dark mode feature and other interactive elements may not be available.
-    </p>
-  </noscript>
-  
 </head>
 <body>
+  <!-- Shared Header with consistent navigation and dark/light mode toggle on top left -->
   <header>
     <nav>
+      <button id="theme-toggle" class="theme-button">🌙</button>
       <ul>
          <li><a href="index.html">Home</a></li>
          <li><a href="about.html">About Me</a></li>
          <li><a href="projects.html">Projects</a></li>
-         <li><a href="resume.html">Resume</a></li>
+         <li><a href="resume.html" class="active">Resume</a></li>
          <li><a href="contact.html">Contact</a></li>
          <li><a href="experiments.html">Experiments</a></li>
          <li><a href="crud.html">CRUD</a></li>
       </ul>
     </nav>
-    <button id="theme-toggle">🌙</button>
   </header>
+
   <main class="resume-container">
     <h1>My Resume</h1>
     <div class="resume-download">
@@ -86,6 +69,7 @@
       </ul>
     </section>
   </main>
+
   <footer>
     <address>📩 Contact: <a href="mailto:rrodness@ucsd.edu">rrodness@ucsd.edu</a></address>
   </footer>
