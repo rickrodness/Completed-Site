@@ -1,63 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact - Rick Rodness</title>
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
   <script defer src="script.js"></script>
 </head>
-
 <body>
+  <!-- Shared Header (Contact active) -->
   <header>
     <nav>
+      <button id="theme-toggle" class="theme-button">🌙</button>
       <ul>
-         <li><a href="index.html">Home</a></li>
-         <li><a href="about.html">About Me</a></li>
-         <li><a href="projects.html">Projects</a></li>
-         <li><a href="resume.html">Resume</a></li>
-         <li><a href="contact.html" class="active">Contact</a></li>
-         <li><a href="experiments.html">Experiments</a></li>
-         <li><a href="crud.html">CRUD</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="experiments.html">Experiments</a></li>
+        <li><a href="crud.html">CRUD</a></li>
       </ul>
     </nav>
-    <button id="theme-toggle">🌙</button>
   </header>
 
   <main class="contact-container">
-    <!-- Hero Section -->
     <section class="contact-hero">
       <h1>Let's Connect</h1>
       <p>Have a question, opportunity, or just want to chat? Drop a message below!</p>
     </section>
 
-    <!-- Contact Form & Info -->
     <div class="contact-wrapper">
-      <form action="https://httpbin.org/post" method="POST" class="contact-form" id="contactForm" novalidate>
+      <form id="contactForm" class="contact-form" action="https://httpbin.org/post" method="POST" novalidate>
         <h2>Send a Message</h2>
-
         <label for="name">Name: <span>*</span></label>
         <input type="text" id="name" name="name" placeholder="Your Name" required pattern="^[A-Za-z\s]+$">
-        
         <label for="email">Email: <span>*</span></label>
         <input type="email" id="email" name="email" placeholder="Your Email" required>
-        
         <label for="message">Message:</label>
         <textarea id="message" name="message" placeholder="Your message..." maxlength="500"></textarea>
         <output id="charCount">500 characters left</output>
-        
-        <!-- Output elements for validation messages -->
         <output id="errorMsg" aria-live="polite"></output>
         <output id="infoMsg" aria-live="polite"></output>
-        
-        <!-- Hidden fields for bot detection and error logging -->
         <input type="hidden" name="possible_bot" value="true">
         <input type="hidden" name="form-errors" id="formErrors">
-
         <button type="submit" class="button">Send Message</button>
       </form>
-
       <div class="contact-info">
         <h2>Contact Details</h2>
         <p><strong>Email:</strong> <a href="mailto:rrodness@ucsd.edu">rrodness@ucsd.edu</a></p>
@@ -67,9 +56,9 @@
       </div>
     </div>
   </main>
-</body>
-</html>
 
+  <footer>
+    <address>Contact me at <a href="mailto:rrodness@ucsd.edu">rrodness@ucsd.edu</a></address>
+  </footer>
 </body>
-
 </html>
