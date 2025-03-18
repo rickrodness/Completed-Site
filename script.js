@@ -1,12 +1,10 @@
 /**********************************************
  * Part 1: CustomElement Creation (Project Cards)
- * Define a custom element <project-card> to display project info.
  **********************************************/
-// placed at the top so it's available immediately.
 class ProjectCard extends HTMLElement {
     constructor() {
         super();
-        // shadow DOM to encapsulate styles 
+        // Shadow DOM to encapsulate styles
         this.attachShadow({ mode: 'open' });
     }
 
@@ -15,15 +13,14 @@ class ProjectCard extends HTMLElement {
     }
 
     render() {
-        // retrieve attributes
-        // default values are used if none provided
+        // Retrieve attributes with default values if not provided
         const title = this.getAttribute('title') || 'Project Title';
         const image = this.getAttribute('img-src') || 'images/default.png';
         const alt = this.getAttribute('img-alt') || 'Default image';
         const description = this.getAttribute('description') || 'A short project description.';
         const link = this.getAttribute('link') || '#';
 
-        // build the HTML custom element
+        // Build the custom element HTML
         this.shadowRoot.innerHTML = `
             <style>
                 :host {
@@ -57,23 +54,19 @@ class ProjectCard extends HTMLElement {
 }
 customElements.define('project-card', ProjectCard);
 
-
- // Main Script
-
+/**********************************************
+ * Main Script
+ **********************************************/
 document.addEventListener("DOMContentLoaded", function () {
-    // Dark Mode
+    // Dark Mode Functionality
     const themeToggle = document.getElementById("theme-toggle");
-
     function setTheme(theme) {
         document.documentElement.dataset.theme = theme;
         localStorage.setItem("theme", theme);
-
         if (themeToggle) {
-            // Switch icon based on theme
             themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
         }
     }
-
     if (themeToggle) {
         themeToggle.addEventListener("click", function () {
             const currentTheme = document.documentElement.dataset.theme;
@@ -81,15 +74,21 @@ document.addEventListener("DOMContentLoaded", function () {
             setTheme(newTheme);
         });
     }
-
-    // Load saved theme (dark/light) from localStorage or default to 'light'
     const savedTheme = localStorage.getItem("theme") || "light";
     setTheme(savedTheme);
+
+    // Hamburger Menu Toggle Functionality
+    const hamburger = document.getElementById("hamburger");
+    const nav = document.querySelector("nav");
+    if (hamburger) {
+        hamburger.addEventListener("click", function () {
+            nav.classList.toggle("active");
+        });
+    }
 
     /* ======================================
        2) Theme Customizer 
        ====================================== */
-    // Elements from the Theme Customizer section
     const customThemeNameInput = document.getElementById("customThemeName");
     const customTextColorInput = document.getElementById("customTextColor");
     const customBgColorInput = document.getElementById("customBgColor");
@@ -98,67 +97,45 @@ document.addEventListener("DOMContentLoaded", function () {
     const saveCustomThemeBtn = document.getElementById("saveCustomTheme");
     const loadCustomThemeBtn = document.getElementById("loadCustomTheme");
 
-    // Function to apply the custom theme by updating CSS variables
     function applyCustomTheme(themeName, textColor, bgColor, fontFamily) {
         document.documentElement.style.setProperty('--text-color', textColor);
         document.documentElement.style.setProperty('--background-color', bgColor);
         document.documentElement.style.setProperty('--font-family', fontFamily);
-
-        // Optionally set a data-theme attribute
         document.documentElement.dataset.theme = themeName || 'custom';
     }
 
-    // Apply button: immediately apply the chosen colors/font to the page
     if (applyCustomThemeBtn) {
         applyCustomThemeBtn.addEventListener('click', () => {
             const themeName = customThemeNameInput.value.trim() || 'custom';
             const textColor = customTextColorInput.value;
             const bgColor = customBgColorInput.value;
             const fontFamily = customFontSelect.value;
-
             applyCustomTheme(themeName, textColor, bgColor, fontFamily);
         });
     }
 
-    // Save button: store the custom theme in localStorage
     if (saveCustomThemeBtn) {
         saveCustomThemeBtn.addEventListener('click', () => {
             const themeName = customThemeNameInput.value.trim() || 'custom';
             const textColor = customTextColorInput.value;
             const bgColor = customBgColorInput.value;
             const fontFamily = customFontSelect.value;
-
-            const customTheme = {
-                themeName,
-                textColor,
-                bgColor,
-                fontFamily
-            };
+            const customTheme = { themeName, textColor, bgColor, fontFamily };
             localStorage.setItem("customTheme", JSON.stringify(customTheme));
             alert("Custom theme saved!");
         });
     }
 
-    // Load button: retrieve the custom theme from localStorage and apply it
     if (loadCustomThemeBtn) {
         loadCustomThemeBtn.addEventListener('click', () => {
             const saved = localStorage.getItem("customTheme");
             if (saved) {
                 const customTheme = JSON.parse(saved);
-
-                // Populate the inputs
                 customThemeNameInput.value = customTheme.themeName;
                 customTextColorInput.value = customTheme.textColor;
                 customBgColorInput.value = customTheme.bgColor;
                 customFontSelect.value = customTheme.fontFamily;
-
-                // Apply it to the page
-                applyCustomTheme(
-                    customTheme.themeName,
-                    customTheme.textColor,
-                    customTheme.bgColor,
-                    customTheme.fontFamily
-                );
+                applyCustomTheme(customTheme.themeName, customTheme.textColor, customTheme.bgColor, customTheme.fontFamily);
             } else {
                 alert("No custom theme found in localStorage!");
             }
@@ -179,7 +156,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const infoMsg = document.getElementById("infoMsg");
         let formErrors = [];
 
-        // Character countdown for textarea
         if (messageInput && charCountOutput) {
             messageInput.addEventListener("input", function () {
                 const remaining = 500 - messageInput.value.length;
@@ -188,7 +164,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
 
-        // Validation function that returns an error message if invalid
         function validateField(input, pattern) {
             if (!input.value.match(pattern)) {
                 let msg = `Invalid input: ${input.placeholder}`;
@@ -198,10 +173,8 @@ document.addEventListener("DOMContentLoaded", function () {
             return "";
         }
 
-        // Production Version: Prevent submission if there are errors
         form.addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent default form submission
-
+            event.preventDefault();
             formErrors = [];
             errorMsg.textContent = "";
             infoMsg.textContent = "";
@@ -212,10 +185,9 @@ document.addEventListener("DOMContentLoaded", function () {
             if (errName || errEmail) {
                 errorMsg.textContent = errName + " " + errEmail;
                 formErrorsField.value = JSON.stringify(formErrors);
-                return; // Stop submission if errors exist
+                return;
             }
 
-            // Send the form data via fetch()
             const formData = new FormData(form);
             fetch("https://httpbin.org/post", {
                 method: "POST",
@@ -224,7 +196,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(response => response.json())
             .then(data => {
                 infoMsg.textContent = "✅ Message successfully sent!";
-                form.reset(); // Clear form after submission
+                form.reset();
                 charCountOutput.textContent = "500 characters left";
             })
             .catch(error => {
@@ -233,17 +205,15 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    /* =====================================================
-       Parts 1 & 2: Project Cards & Data Loading 
-       ===================================================== */
-    // Function to populate the cards container with project data.
+    /* ======================================
+       4) Project Cards & Data Loading 
+       ====================================== */
     function populateCards(dataArray) {
         const container = document.getElementById('cards-container');
         if (!container) return;
-        container.innerHTML = '';  // Clear previous cards
+        container.innerHTML = '';
         dataArray.forEach(project => {
             const card = document.createElement('project-card');
-            // Set attributes based on the JSON data.
             card.setAttribute('title', project.title);
             card.setAttribute('img-src', project.image);
             card.setAttribute('img-alt', project.alt);
@@ -253,22 +223,18 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Event listener for "Load Local" button.
     const loadLocalBtn = document.getElementById('load-local');
     if (loadLocalBtn) {
         loadLocalBtn.addEventListener('click', () => {
-            // Retrieve project data from localStorage; default to an empty array if none exists.
             const data = JSON.parse(localStorage.getItem('projectData')) || [];
             populateCards(data);
         });
     }
 
-    // Event listener for "Load Remote" button.
     const loadRemoteBtn = document.getElementById('load-remote');
     if (loadRemoteBtn) {
         loadRemoteBtn.addEventListener('click', async () => {
             try {
-                // Replace the URL below with your remote JSON endpoint.
                 const response = await fetch('https://my-json-server.typicode.com/yourRepo/project-data');
                 const data = await response.json();
                 populateCards(data);
@@ -277,5 +243,4 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-
-}); 
+});
