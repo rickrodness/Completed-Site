@@ -223,23 +223,27 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    // Load Local Projects from localStorage
     const loadLocalBtn = document.getElementById('load-local');
     if (loadLocalBtn) {
         loadLocalBtn.addEventListener('click', () => {
-            const data = JSON.parse(localStorage.getItem('projectData')) || [];
-            populateCards(data);
+            const localData = localStorage.getItem('projectData');
+            const projects = localData ? JSON.parse(localData) : [];
+            populateCards(projects);
         });
     }
 
+    // Load Remote Projects from JSON Server endpoint
     const loadRemoteBtn = document.getElementById('load-remote');
     if (loadRemoteBtn) {
         loadRemoteBtn.addEventListener('click', async () => {
             try {
-                const response = await fetch('https://my-json-server.typicode.com/yourRepo/project-data');
-                const data = await response.json();
-                populateCards(data);
+                // Update the URL if needed—this uses a local json-server endpoint
+                const response = await fetch('http://localhost:3000/projects');
+                const projects = await response.json();
+                populateCards(projects);
             } catch (error) {
-                console.error("Error loading remote data:", error);
+                console.error("Error loading remote projects:", error);
             }
         });
     }
